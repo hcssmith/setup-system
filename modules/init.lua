@@ -11,7 +11,9 @@ M.ProcessModule = function (module)
     end
   end
   print('Setting up config')
-  module.SetupConfig()
+  if module.SetupConfig ~= nil then
+    module.SetupConfig()
+  end
 end
 
 return M
