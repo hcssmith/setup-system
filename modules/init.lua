@@ -1,5 +1,17 @@
 M = {}
 
+M.Module = {
+  Dependancies = {},
+  Name = '',
+  SetupConfig = function () end
+}
+
+function M.NewModule(args)
+  local fact = require('util.factory')
+  local m = fact.New(M.Module, args)
+  m.Dependancies = {}
+end
+
 M.ProcessModule = function (module)
   local util = require('util')
   print('Checking if ' .. module.ProgramName .. ' is installed.')
